@@ -8,8 +8,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { StoreModule as NgRxStoreModule } from '@ngrx/store'; // import StoreModule from NgRx
-import { EffectsModule } from '@ngrx/effects'; // import EffectsModule from NgRx
+import { MatGridListModule } from '@angular/material/grid-list';
+
+import { StoreModule as NgRxStoreModule } from '@ngrx/store'; 
+import { EffectsModule } from '@ngrx/effects'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { StoreModule } from './store/store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { AssessmentCardComponent } from './components/assessment-card/assessment-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { environment } from '../environments/environment';
     AuthComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AssessmentCardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
+    MatGridListModule, 
     MatIconModule,
     NgRxStoreModule.forRoot({}), 
     EffectsModule.forRoot([]), 
@@ -52,5 +57,6 @@ import { environment } from '../environments/environment';
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

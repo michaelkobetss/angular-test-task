@@ -1,19 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { API } from '../constants/API';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private readonly API_URL = 'https://user-assessment-api.vercel.app/api/login';
   private token: string | null = null;
-  private user: any = null; // Add this line
+  private user: any = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(this.API_URL, { email, password });
+    return this.http.post(API.URL_LOGIN, { email, password }).pipe(
+      catchError((error: any) => {
+        this.snackBar.open(`Wrong email or password.`, 'Close', {
+          duration: 5000,
+        });
+        return throwError(error);
+      })
+    );
+  }
+
+  logout(): void {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    this.token = null;
+    this.user = null;
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 
   setToken(token: string): void {
@@ -28,12 +48,14 @@ export class AuthService {
     return this.token || '';
   }
 
-  setUser(user: any): void { // Add this method
+  setUser(user: any): void {
+    // Add this method
     localStorage.setItem('user', JSON.stringify(user));
     this.user = user;
   }
 
-  getUser(): any { // Add this method
+  getUser(): any {
+    // Add this method
     if (!this.user) {
       this.user = JSON.parse(localStorage.getItem('user') || '{}');
     }

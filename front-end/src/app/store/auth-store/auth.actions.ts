@@ -15,3 +15,6 @@ export const loginFailure = createAction(
   '[Auth] Login Failure',
   props<{ error: any }>()
 );
+export const navigateToDashboard = createAction('[Auth] Navigate To Dashboard');
+
+export const loadUserFromLocalStorage = createAction('[Auth] Load User From Local Storage');

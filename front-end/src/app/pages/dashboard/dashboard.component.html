@@ -1,1 +1,5 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div *ngFor="let assessment of assessments">
+      <app-assessment-card [assessment]="assessment"></app-assessment-card>
+    </div>
+</div>

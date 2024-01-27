@@ -1,8 +1,7 @@
-<!-- header.component.html -->
 <mat-toolbar color="primary">
-    <span>Test task application</span>
-    <span class="spacer"></span>
-    <button mat-icon-button class="icon" aria-label="Logout button">
-      <mat-icon>logout</mat-icon>
-    </button>
-  </mat-toolbar>    
+  <span>Test task application</span>
+  <span class="spacer"></span>
+  <button mat-icon-button class="icon" aria-label="Logout button" (click)="onLogout()" *ngIf="isLoggedIn()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

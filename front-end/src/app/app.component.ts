@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as AuthActions from './store/auth-store/auth.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'front-end-1';
+  title = 'front-end-test-task';
+
+  constructor(private store: Store) {
+    this.store.dispatch(AuthActions.loadUserFromLocalStorage());
+  }
 }
