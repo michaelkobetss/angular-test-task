@@ -1,6 +1,6 @@
-<mat-card [style.filter]="assessment.active ? 'none' : 'grayscale(100%)'" (click)="onAssessmentClick(assessment.id)" class="card">
-  <mat-card-header>
-    <mat-card-title>{{ assessment.name }}</mat-card-title>
+<mat-card [style.filter]="assessment.active ? 'none' : 'grayscale(100%) brightness(50%)'" (click)="onAssessmentClick(assessment.id)" class="card">
+  <mat-card-header class="centered-title">
+    <mat-card-title >{{ assessment.name }}</mat-card-title>
   </mat-card-header>
   <div class="image-container">
     <img mat-card-image [src]="assessment.image_url" alt="{{ assessment.name }}">
