@@ -2,28 +2,16 @@
 
 .card
     width: 16rem
-    background-color:$color-gray-2
+    background-color: $color-gray-2
 
-.centered-title
-   
-    margin: auto
-    padding: 8px
-.active 
-    color: $color-green
-    // font-weight: 400
-
-.center
+mat-card-header
     display: flex
-    text-align: center
-    align-items: center
-    align-content: center
+    justify-content: center
+    padding: 8px
 
-.icon 
-    margin-right: 10px
-
-
-.card-content
-    margin-top: 10px
+mat-card-content
+    margin-top: 12px
+    padding-bottom: 0px !important
 
 .image-container
     min-height: 14rem
@@ -32,5 +20,27 @@
     justify-content: center
     align-items: center
 
-    img
-       min-height: 14rem
+.image-container img
+    min-height: 14rem
+
+.info, .status
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 8px 0px
+
+mat-icon
+    margin-right: 10px
+
+.active
+    color: $color-green
+
+.inactive
+    filter: grayscale(100%) brightness(50%)
+
+.view-graph
+    display: flex
+    justify-content: center
+    padding: 8px 0px
+    button
+        background-color: #ffffff09

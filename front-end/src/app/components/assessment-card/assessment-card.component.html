@@ -1,16 +1,25 @@
-<mat-card [style.filter]="assessment.active ? 'none' : 'grayscale(100%) brightness(50%)'" (click)="onAssessmentClick(assessment.id)" class="card">
-  <mat-card-header class="centered-title">
-    <mat-card-title >{{ assessment.name }}</mat-card-title>
-  </mat-card-header>
-  <div class="image-container">
-    <img mat-card-image [src]="assessment.image_url" alt="{{ assessment.name }}">
+<mat-card class="card">
+  <div [ngClass]="{'inactive': !assessment.active}">
+    <mat-card-header>
+      <mat-card-title>{{ assessment.name }}</mat-card-title>
+    </mat-card-header>
+    <div class="image-container">
+      <img mat-card-image [src]="assessment.image_url" [alt]="assessment.name" />
+    </div>
+    <mat-card-content>
+      <div class="info">
+        <mat-icon>group</mat-icon> Users Resolved: {{ assessment.users_resolved }}
+      </div>
+      <div class="status">
+        <mat-icon [ngClass]="{'active': assessment.active}">{{assessment.active ? 'check_circle' : 'highlight_off'}}</mat-icon>
+        <span [ngClass]="{'active': assessment.active}">{{ assessment.active ? "Active" : "Inactive" }}</span>
+      </div><hr/>
+    </mat-card-content>
+
   </div>
-  <mat-card-content class="card-content">
-    <p class="center"><mat-icon class="icon">group</mat-icon> Users Resolved: {{ assessment.users_resolved }}</p>
-    <p class="center">
-      <mat-icon *ngIf="assessment.active; else inactiveIcon" class="icon active" >check_circle</mat-icon>
-      <ng-template #inactiveIcon><mat-icon class="icon">highlight_off</mat-icon></ng-template>
-      <span [class.active]="assessment.active">{{ assessment.active ? 'Active' : 'Inactive' }}</span>
-    </p>
-  </mat-card-content>
+  <div class="view-graph">
+    <button mat-button (click)="openGraph(assessment.id)">
+      <mat-icon>bar_chart</mat-icon> View graph
+    </button>
+  </div>
 </mat-card>

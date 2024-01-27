@@ -1,2 +1,10 @@
-.spacer
-        flex: 1 1 auto
+@import '../../app.variables'
+
+.container
+        display: flex
+        align-items: center
+        +container-width
+        .spacer
+                flex: 1 1 auto
+        .header-text
+                margin-left:16px

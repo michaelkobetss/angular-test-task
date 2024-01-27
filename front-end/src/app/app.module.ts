@@ -9,9 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { NgChartsModule } from 'ng2-charts';
 
-import { StoreModule as NgRxStoreModule } from '@ngrx/store'; 
-import { EffectsModule } from '@ngrx/effects'; 
+import { StoreModule as NgRxStoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,9 @@ import { StoreModule } from './store/store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AssessmentCardComponent } from './components/assessment-card/assessment-card.component';
+import { AssessmentGraphComponent } from './pages/assessment-graph/assessment-graph.component';
+import { ListUsersComponent } from './pages/users/list-users/list-users.component';
+import { EditUserComponent } from './pages/users/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +36,14 @@ import { AssessmentCardComponent } from './components/assessment-card/assessment
     DashboardComponent,
     HeaderComponent,
     FooterComponent,
-    AssessmentCardComponent
+    AssessmentCardComponent,
+    AssessmentGraphComponent,
+    ListUsersComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
+    NgChartsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -45,10 +53,10 @@ import { AssessmentCardComponent } from './components/assessment-card/assessment
     MatInputModule,
     MatButtonModule,
     MatToolbarModule,
-    MatGridListModule, 
+    MatGridListModule,
     MatIconModule,
-    NgRxStoreModule.forRoot({}), 
-    EffectsModule.forRoot([]), 
+    NgRxStoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     StoreModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
@@ -56,7 +64,6 @@ import { AssessmentCardComponent } from './components/assessment-card/assessment
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
-  
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
