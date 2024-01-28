@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <div class="container">
+    <button mat-icon-button (click)="menuClick.emit()" *ngIf="(user$ | async) && (user$ | async).role === 'Admin'">
+      <mat-icon class="spin">settings</mat-icon>
+    </button>
+    
+    <span class="header-text">Test task application</span>
+    <span class="spacer"></span>
+    <button
+      mat-icon-button
+      class="icon"
+      (click)="onLogout()"
+      *ngIf="isLoggedIn()"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

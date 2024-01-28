@@ -1,0 +1,26 @@
+@import '../../app.variables'
+
+.sidenav-container
+    height: 100%
+
+.sidenav
+    width: 250px
+    left:0px
+
+.container
+    display: flex
+    align-items: center
+    +container-width
+    .spacer
+        flex: 1 1 auto
+    .header-text
+        margin-left:16px
+
+@keyframes spin 
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)
+
+.spin 
+    animation: spin 4s linear infinite

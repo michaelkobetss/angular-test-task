@@ -1,0 +1,30 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title class="center-content"
+      ><mat-icon class="small-icon">person</mat-icon> {{ user.name }}
+      {{ user.lastName }}</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <div class="info">
+      <i class="center-content">{{ user.position }} {{ user.role }}</i>
+      
+      <hr />
+      <div class="center-content">
+        <mat-icon class="small-icon">calendar_today</mat-icon
+        >{{ user.dateOfBirth }}
+      </div>
+      <div class="center-content">
+        <mat-icon class="small-icon">school</mat-icon> {{ user.education }}
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onEditClick()" class="button">
+      <mat-icon class="small-icon">settings</mat-icon> Edit user
+    </button>
+    <button mat-button (click)="onDeleteClick()" class="button">
+      <mat-icon class="small-icon">delete</mat-icon> Delete user
+    </button>
+  </mat-card-actions>
+</mat-card>

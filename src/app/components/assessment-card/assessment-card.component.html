@@ -1,0 +1,25 @@
+<mat-card class="card" (click)="openGraph(assessment.id)">
+  <div [ngClass]="{'inactive': !assessment.active}">
+    <mat-card-header>
+      <mat-card-title>{{ assessment.name }}</mat-card-title>
+    </mat-card-header>
+    <div class="image-container">
+      <img mat-card-image [src]="assessment.image_url" [alt]="assessment.name" />
+    </div>
+    <mat-card-content>
+      <div class="info">
+        <mat-icon>group</mat-icon> Users Resolved: {{ assessment.users_resolved }}
+      </div>
+      <div class="status">
+        <mat-icon [ngClass]="{'active': assessment.active}">{{assessment.active ? 'check_circle' : 'highlight_off'}}</mat-icon>
+        <span [ngClass]="{'active': assessment.active}">{{ assessment.active ? "Active" : "Inactive" }}</span>
+      </div><hr/>
+    </mat-card-content>
+
+  </div>
+  <div class="view-graph">
+    <button mat-button (click)="openGraph(assessment.id)">
+      <mat-icon>bar_chart</mat-icon> View graph
+    </button>
+  </div>
+</mat-card>
