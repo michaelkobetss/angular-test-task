@@ -21,6 +21,7 @@ export class AuthComponent implements OnInit {
     private router: Router
   ) {}
 
+  // Initialize the login form with username and password fields
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -28,6 +29,7 @@ export class AuthComponent implements OnInit {
     });
   }
 
+  // Dispatch login action if form is valid
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;

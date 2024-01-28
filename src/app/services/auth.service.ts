@@ -15,8 +15,9 @@ export class AuthService {
   private token: string | null = null;
   private user: any = null;
 
-  constructor(private http: HttpClient, private snackBar: MatSnackBar, private store: Store, private router: Router) {} // inject Store
+  constructor(private http: HttpClient, private snackBar: MatSnackBar, private store: Store, private router: Router) {}
 
+  // Attempt to log in, show error message if login fails
   login(email: string, password: string): Observable<any> {
     return this.http.post(API.URL_LOGIN, { email, password }).pipe(
       catchError((error: any) => {
@@ -28,6 +29,7 @@ export class AuthService {
     );
   }
 
+  // Log out, clear local storage, dispatch logout action, and reload the page
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('authToken');
@@ -38,15 +40,18 @@ export class AuthService {
     window.location.reload()
   }
 
+  // Check if user is logged in
   isLoggedIn(): boolean {
     return !!this.getToken();
   }
 
+  // Set token in local storage and in-memory variable
   setToken(token: string): void {
     localStorage.setItem('token', token);
     this.token = token;
   }
 
+  // Get token from in-memory variable or local storage
   getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem('token');
@@ -54,11 +59,13 @@ export class AuthService {
     return this.token || '';
   }
 
+  // Set user in local storage and in-memory variable
   setUser(user: any): void {
     localStorage.setItem('user', JSON.stringify(user));
     this.user = user;
   }
 
+  // Get user from in-memory variable or local storage
   getUser(): any {
     if (!this.user) {
       this.user = JSON.parse(localStorage.getItem('user') || '{}');

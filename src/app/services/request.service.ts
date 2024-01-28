@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class RequestService {
   constructor(private http: HttpClient, private store: Store) { }
 
+  //so far I wrote only get request, but this was enough for a task
   getRequest(url: string): Observable<any[]> {
     return this.store.select(selectUser).pipe(
       first(),

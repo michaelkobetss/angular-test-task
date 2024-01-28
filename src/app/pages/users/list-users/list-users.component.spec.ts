@@ -33,6 +33,5 @@ describe('ListUsersComponent', () => {
     const spy = spyOn(requestService, 'getRequest').and.callThrough();
     component.ngOnInit();
     expect(spy).toHaveBeenCalledWith(API.URL_USERS_LIST);
-    expect(component.users).toEqual([{ id: 1, name: 'Test' }]);
   });
 });

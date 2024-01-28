@@ -1,4 +1,13 @@
+// export interface User {
+//     email: string;
+//     password: string;
+//   }
+
 export interface User {
-    email: string;
-    password: string;
-  }
+  name: string;
+  lastName: string;
+  dateOfBirth: string;
+  education: string;
+  role: string;
+  position: string;
+}

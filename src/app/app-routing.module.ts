@@ -24,6 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  //hash router to work with github-pages.
   imports: [RouterModule.forRoot(routes, {useHash:true})],
   exports: [RouterModule],
 })

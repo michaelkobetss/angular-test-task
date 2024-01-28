@@ -1,4 +1,5 @@
 <mat-card class="card" (click)="openGraph(assessment.id)">
+  <!-- Adds gray color if it is inactive -->
   <div [ngClass]="{'inactive': !assessment.active}">
     <mat-card-header>
       <mat-card-title>{{ assessment.name }}</mat-card-title>

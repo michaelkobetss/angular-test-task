@@ -12,9 +12,7 @@ export class AssessmentCardComponent {
 
   constructor(private router: Router) { }
 
-  onAssessmentClick(id:number){
-    console.log(id)
-  }
+
 
   openGraph(id: number): void {
     this.router.navigate([PAGES.ASSESSMENT_GRAPH+`/${id-1}`]);

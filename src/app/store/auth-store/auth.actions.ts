@@ -15,9 +15,14 @@ export const loginFailure = createAction(
   '[Auth] Login Failure',
   props<{ error: any }>()
 );
-export const navigateToDashboard = createAction('[Auth] Navigate To Dashboard');
 
-export const loadUserFromLocalStorage = createAction('[Auth] Load User From Local Storage');
+//needed for redirect on login to work
+export const navigateToDashboard = createAction(
+  '[Auth] Navigate To Dashboard'
+  );
 
+export const loadUserFromLocalStorage = createAction(
+  '[Auth] Load User From Local Storage'
+);
 
 export const logout = createAction('[Auth] Logout');

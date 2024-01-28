@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.requestService.getRequest(API.URL_USER_ASSESSMENTS).subscribe(
       data => {
-        console.log(data); 
         this.assessments = data;
       },
       error => console.error(error)
