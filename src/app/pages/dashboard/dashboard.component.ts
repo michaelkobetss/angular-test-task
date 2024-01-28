@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Assessment } from '../../interfaces/assessments';
-import { RequestService } from '../../services/request.service'; // replace with the actual path to your request.service.ts file
+import { RequestService } from '../../services/request.service'; 
 import { API } from '../../constants/API';
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.requestService.getRequest(API.URL_USER_ASSESSMENTS).subscribe(
       data => {
-        console.log(data); // log the data to the console
+        console.log(data); 
         this.assessments = data;
       },
       error => console.error(error)

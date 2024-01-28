@@ -1,11 +1,11 @@
 //auth.effects.ts
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators'; // import tap
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import * as AuthActions from './auth.actions';
-import { Router } from '@angular/router'; // import Router
+import { Router } from '@angular/router';
 import { PAGES } from '../../constants/pages';
 
 @Injectable()
@@ -33,7 +33,7 @@ export class AuthEffects {
       const token = localStorage.getItem('token');
       if (userItem && token) {
         let user = JSON.parse(userItem);
-        user.token = token; // Add the token to the user object
+        user.token = token; 
         this.authService.setToken(token);
         return AuthActions.loginSuccess({ user });
       } else {
@@ -47,14 +47,14 @@ export class AuthEffects {
   navigateToDashboard$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AuthActions.loginSuccess),
-      tap(() => this.router.navigate([PAGES.DASHBOARD])) // navigate on login success
+      tap(() => this.router.navigate([PAGES.DASHBOARD])) 
     ),
-    { dispatch: false } // set dispatch to false because this effect doesn't dispatch an action
+    { dispatch: false } 
   );
 
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private router: Router // inject Router
+    private router: Router 
   ) {}
 }

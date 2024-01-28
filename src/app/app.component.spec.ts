@@ -11,7 +11,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 
 describe('AppComponent', () => {
   let appComponent: AppComponent;
-  let fixture: ComponentFixture<AppComponent>; // ComponentFixture is now recognized
+  let fixture: ComponentFixture<AppComponent>; 
   let store: Store;
 
   beforeEach(async () => {
@@ -24,7 +24,7 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        LayoutComponent // add this line
+        LayoutComponent 
       ],
       providers: [
         FormBuilder,
@@ -47,7 +47,7 @@ describe('AppComponent', () => {
 
   it('should dispatch loadUserFromLocalStorage action on init', () => {
     const spy = spyOn(store, 'dispatch');
-    appComponent.ngOnInit(); // ngOnInit is now recognized
+    appComponent.ngOnInit();
     expect(spy).toHaveBeenCalled();
   });
 });

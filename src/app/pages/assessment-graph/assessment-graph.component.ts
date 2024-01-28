@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RequestService } from '../../services/request.service'; // replace with the actual path to your request.service.ts file
+import { RequestService } from '../../services/request.service'; 
 import { ChartDataset } from 'chart.js';
 import { API } from '../../constants/API';
 

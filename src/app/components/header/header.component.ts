@@ -2,8 +2,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { PAGES } from '../../constants/pages';
-import { Store } from '@ngrx/store'; // import Store
-import { selectUser } from '../../store/auth-store/auth.selector'; // import the selector
+import { Store } from '@ngrx/store'; 
+import { selectUser } from '../../store/auth-store/auth.selector';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +13,9 @@ import { selectUser } from '../../store/auth-store/auth.selector'; // import the
 export class HeaderComponent {
   @Output() menuClick = new EventEmitter();
   title = 'Test Task';
-  user$ = this.store.select(selectUser); // subscribe to the user state
+  user$ = this.store.select(selectUser); 
 
-  constructor(private authService: AuthService, private router: Router, private store: Store) { } // inject Store
+  constructor(private authService: AuthService, private router: Router, private store: Store) { } 
 
   onLogout(): void {
     this.authService.logout();

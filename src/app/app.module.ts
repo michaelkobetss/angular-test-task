@@ -66,10 +66,11 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     MatListModule,
     NgRxStoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    
     StoreModule,
     StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
+      maxAge: 25,
+      logOnly: environment.production, 
     }),
   ],
   providers: [],

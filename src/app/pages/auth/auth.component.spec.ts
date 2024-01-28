@@ -15,7 +15,7 @@ describe('AuthComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         MatCardModule,
-        MatFormFieldModule // add this line
+        MatFormFieldModule
       ],
       declarations: [
         AuthComponent

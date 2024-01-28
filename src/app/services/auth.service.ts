@@ -6,6 +6,7 @@ import { API } from '../constants/API';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store'; // import Store
 import * as AuthActions from '../store/auth-store/auth.actions'; // import AuthActions
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class AuthService {
   private token: string | null = null;
   private user: any = null;
 
-  constructor(private http: HttpClient, private snackBar: MatSnackBar, private store: Store) {} // inject Store
+  constructor(private http: HttpClient, private snackBar: MatSnackBar, private store: Store, private router: Router) {} // inject Store
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(API.URL_LOGIN, { email, password }).pipe(
@@ -33,7 +34,8 @@ export class AuthService {
     localStorage.removeItem('user');
     this.token = null;
     this.user = null;
-    this.store.dispatch(AuthActions.logout()); // dispatch logout action
+    this.store.dispatch(AuthActions.logout()); 
+    window.location.reload()
   }
 
   isLoggedIn(): boolean {
